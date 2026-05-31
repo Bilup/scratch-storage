@@ -4,9 +4,9 @@ const ScratchStorage = require('../../dist/node/scratch-storage');
 
 // Hash and file size of each default asset
 const knownSizes = {
-    '5be19e095b00a47ca9f64345f3e11eb8': 19568,
-    '3b0486b26f2d51bb800c49cfedb48034': 383694,
-    '019b379f699e0e93a2113866f7997c9e': 611
+    'fe64d39697ffe2516d061eb87db737cf': 26085,
+    '98fe9efd712b74df8c8e311c5785a1d0': 81046,
+    'e7a93aa2753e09c69deeae3b9b0ee6e9': 1430
 };
 
 const getDefaultAssetTypes = storage => {
