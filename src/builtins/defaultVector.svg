@@ -1,7 +1,11 @@
 <?xml version="1.0"?>
-<svg width="128" height="128" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+<svg width="256" height="256" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
  <g>
-  <rect fill="#CCC" height="128" width="128"/>
-  <text fill="black" y="107" x="35.5" font-size="128">?</text>
+  <rect fill="#FF0000" height="256" width="256"/>
+  <text fill="white" y="50" x="10" font-size="45">Media Lost</text>
+  <text fill="white" y="100" x="10" font-size="45">媒体缺失</text>
+  <text fill="white" y="200" x="10" font-size="15">可能的原因: Possible Reasons:</text>
+  <text fill="white" y="220" x="10" font-size="15">sb3文件残缺 Broken sb3 file</text>
+  <text fill="white" y="240" x="10" font-size="15">素材库故障 Asset Library Down </text>
  </g>
 </svg>
