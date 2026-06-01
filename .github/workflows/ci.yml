@@ -1,31 +1,36 @@
-name: Publish to develop-builds branch
+name: CI
 
 on:
   push:
-    branches:
-      - develop
+  pull_request:
 
 permissions:
   contents: write
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v6
+      - name: Install Node.js
+        uses: actions/setup-node@v6
         with:
           node-version: 24
+          cache: npm
       - run: npm ci
       - run: npm run build
-      - run: npm test
+      - run: npm run test
 
       - name: Deploy to develop-builds
+        if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Configure remote to use GITHUB_TOKEN
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
 
           # Backup dist directory
           rm -rf /tmp/dist
