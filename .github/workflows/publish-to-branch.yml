@@ -2,8 +2,8 @@ name: Publish to develop-builds branch
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - develops
 
 permissions:
   contents: write
