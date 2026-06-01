@@ -13,7 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          persist-credentials: false
           fetch-depth: 0
       - name: Install Node.js
         uses: actions/setup-node@v6
@@ -29,6 +28,9 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Configure remote to use GITHUB_TOKEN
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
 
           # Backup dist directory
           rm -rf /tmp/dist
